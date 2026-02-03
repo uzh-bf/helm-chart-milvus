@@ -158,6 +158,9 @@ spec:
         {{- if .Values.volumeMounts }}
           {{- toYaml .Values.volumeMounts | nindent 8 }}
         {{- end}}
+      {{- with .Values.standalone.extraContainers }}
+      {{ toYaml . | nindent 6 }}
+      {{- end }}
 
     {{- if and (.Values.nodeSelector) (not .Values.standalone.nodeSelector) }}
       nodeSelector:

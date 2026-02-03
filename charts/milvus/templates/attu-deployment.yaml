@@ -57,6 +57,13 @@ spec:
 {{ include "milvus.attu.env" . | indent 8}}
         resources:
           {{- toYaml .Values.attu.resources | nindent 10 }}
+      {{- with .Values.attu.extraContainers }}
+      {{ toYaml . | nindent 6 }}
+      {{- end }}
+      volumes:
+      {{- with .Values.attu.extraVolumes }}
+      {{ toYaml . | nindent 6 }}
+      {{- end }}
     {{- if and (.Values.affinity) (not .Values.attu.affinity) }}
       affinity:
 {{ toYaml .Values.affinity | indent 8 }}

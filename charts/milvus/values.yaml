@@ -248,7 +248,8 @@ standalone:
       enabled: false  # Enable local storage size limit
   profiling:
     enabled: false  # Enable live profiling
-
+  extraContainers: []
+  volumes: []
   ## Default message queue for milvus standalone
   ## Supported value: rocksmq, natsmq, pulsar, kafka and woodpecker
   messageQueue: woodpecker
@@ -627,7 +628,8 @@ attu:
     #  - secretName: chart-attu-tls
     #    hosts:
     #      - milvus-attu.local
-  
+  extraContainers: []
+  extraVolumes: []
   route:
     enabled: false
     host: ""
