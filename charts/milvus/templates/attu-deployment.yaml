@@ -31,6 +31,7 @@ spec:
       {{- end }}
 {{ include "milvus.ud.annotations" . | indent 8 }}
     spec:
+      serviceAccountName: {{ include "milvus.serviceAccount" . }}
       {{- if .Values.attu.image.pullSecrets }}
       imagePullSecrets:
       {{- range .Values.attu.image.pullSecrets }}
